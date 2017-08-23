@@ -1,0 +1,231 @@
+@charset "UTF-8";
+* {
+  background: #eef;
+  font-family: open_sans;
+}
+
+#cv {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+h1 {
+  font-size: 40px;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+
+a, a:link, a:visited {
+  color: inherit;
+}
+
+section h2 {
+  border-bottom: 2px #888 solid;
+  margin: 1rem 0;
+  padding-bottom: 0.3rem;
+  font-size: 120%;
+}
+
+section h2 a, section h2 a:link, section h2 a:visited {
+  color: #333;
+  padding-left: 5px;
+  font-size: 70%;
+  display: none;
+}
+
+section h2:hover a:link, section h2:hover a:visited {
+  display: inline-block;
+}
+
+section h3 {
+  font-size: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 180px auto 200px;
+}
+
+section h3 :nth-child(2) {
+  font-weight: normal;
+}
+
+section h3 :nth-child(3) {
+  color: #555;
+  text-align: right;
+}
+
+nav {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(5, auto);
+  font-size: 120%;
+}
+
+nav a, nav a:link, nav a:visited {
+  text-align: center;
+  padding: 0 1em;
+}
+
+#contact {
+  margin: 1em 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(5, 120px);
+}
+
+#contact a, #contact a:link, #contact a:visited {
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+#contact [class*=" icon-"], #contact [class^="icon-"] {
+  margin: 0 0.5rem 0 0.7rem;
+}
+
+#statement {
+  font-style: italic;
+  color: #555;
+  padding: 1rem;
+}
+
+.tech {
+  margin-top: 0.8em;
+}
+
+.tech span {
+  font-size: 80%;
+  background-color: #888;
+  color: white;
+  padding: 2px 5px;
+  margin: 1px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+@media print {
+  body {
+    font-size: 10pt;
+  }
+  h1 {
+    font-size: 16pt;
+  }
+  nav {
+    display: none;
+  }
+  #cv, #statement {
+    padding: 0;
+  }
+  p {
+    margin: 10px 0;
+  }
+  .tech span {
+    margin: 0 0 2mm 0;
+    padding: 0;
+    color: black;
+  }
+  .tech span:not(:last-child):after {
+    content: "•";
+    margin: 5pt;
+  }
+  a:link, a:visited {
+    text-decoration: none;
+  }
+  #portfolio p {
+    display: none;
+  }
+  #education p {
+    display: none;
+  }
+  #portfolio h3 {
+    grid-template-columns: 300px auto 150px !important;
+  }
+  section h2 {
+    border: none;
+    margin-bottom: 0;
+  }
+  section h3 {
+    border-top: 0.25px #333 solid;
+    padding: 2mm 0 0 0;
+  }
+  section h3 a:link::after, section h3 a:visited::after {
+    content: attr(href);
+    font-size: 70%;
+    font-weight: normal;
+    color: #555;
+    display: block;
+    clear: both;
+  }
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("icomoon.woff?s2lsqw") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email:before {
+  content: "";
+}
+
+.icon-github:before {
+  content: "";
+}
+
+.icon-twitter:before {
+  content: "";
+}
+
+.icon-instagram:before {
+  content: "";
+}
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("OpenSans-Regular-webfont.woff") format("woff");
+  font-weight: regular;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("OpenSans-Light-webfont.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("OpenSans-Bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("OpenSans-Italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+ 
+
+ /*# sourceMappingURL= style.css.map */
