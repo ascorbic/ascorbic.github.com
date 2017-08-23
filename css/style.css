@@ -7,19 +7,47 @@
 #cv {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 3rem;
+}
+
+@media (min-width: 64em) {
+  #cv {
+    padding: 0 3rem;
+  }
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 150%;
   color: #333;
   text-align: center;
   font-weight: bold;
-  margin: 0;
+  margin: 0 0 1rem 0;
 }
 
-a, a:link, a:visited {
+@media print, (min-width: 40em) {
+  h1 {
+    font-size: 200%;
+    margin: 0;
+  }
+}
+
+@media print {
+  h1 {
+    font-size: 16pt;
+  }
+}
+
+a,
+a:link,
+a:visited {
   color: inherit;
+}
+
+@media print {
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
 }
 
 section h2 {
@@ -29,7 +57,16 @@ section h2 {
   font-size: 120%;
 }
 
-section h2 a, section h2 a:link, section h2 a:visited {
+@media print {
+  section h2 {
+    border: none;
+    margin-bottom: 0;
+  }
+}
+
+section h2 a,
+section h2 a:link,
+section h2 a:visited {
   color: #333;
   padding-left: 5px;
   font-size: 70%;
@@ -44,7 +81,13 @@ section h3 {
   font-size: 100%;
   margin: 0;
   display: grid;
-  grid-template-columns: 180px auto 200px;
+  grid-template-columns: 50% 50%;
+}
+
+@media print, (min-width: 40em) {
+  section h3 {
+    grid-template-columns: 180px auto 200px;
+  }
 }
 
 section h3 :nth-child(2) {
@@ -53,29 +96,115 @@ section h3 :nth-child(2) {
 
 section h3 :nth-child(3) {
   color: #555;
-  text-align: right;
+  text-align: left;
+  font-weight: normal;
+  font-size: 90%;
+}
+
+@media print, (min-width: 40em) {
+  section h3 :nth-child(3) {
+    text-align: right;
+    font-weight: bold;
+    font-size: 100%;
+  }
+}
+
+@media print {
+  section h3 {
+    border-top: 0.25px #333 solid;
+    padding: 2mm 0 0 0;
+  }
+  section h3 a:link::after,
+  section h3 a:visited::after {
+    content: attr(href);
+    font-size: 70%;
+    font-weight: normal;
+    color: #555;
+    display: block;
+    clear: both;
+  }
+}
+
+section p {
+  text-align: justify;
+}
+
+@media print {
+  section p {
+    margin: 10px 0;
+  }
 }
 
 nav {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(5, auto);
-  font-size: 120%;
+  grid-template-columns: repeat(3, auto);
+  font-weight: bold;
 }
 
-nav a, nav a:link, nav a:visited {
+@media print, (min-width: 40em) {
+  nav {
+    grid-template-columns: repeat(4, auto);
+    font-size: 120%;
+    font-weight: normal;
+  }
+}
+
+nav > *:first-child {
+  display: none;
+}
+
+@media print, (min-width: 40em) {
+  nav > *:first-child {
+    display: inline-block;
+  }
+}
+
+nav a,
+nav a:link,
+nav a:visited {
   text-align: center;
   padding: 0 1em;
 }
 
-#contact {
-  margin: 1em 0;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(5, 120px);
+@media print {
+  nav {
+    display: none;
+  }
 }
 
-#contact a, #contact a:link, #contact a:visited {
+#contact {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 50%);
+}
+
+#contact > *:first-child {
+  display: none;
+}
+
+@media print {
+  #contact > *:first-child {
+    display: inline-block;
+  }
+}
+
+@media print, (min-width: 40em) {
+  #contact {
+    margin: 1em 0;
+    grid-template-columns: repeat(4, 120px);
+  }
+}
+
+@media print, print and (min-width: 40em) {
+  #contact {
+    grid-template-columns: repeat(5, auto);
+  }
+}
+
+#contact a,
+#contact a:link,
+#contact a:visited {
   text-decoration: none;
 }
 
@@ -83,14 +212,21 @@ nav a, nav a:link, nav a:visited {
   text-decoration: underline;
 }
 
-#contact [class*=" icon-"], #contact [class^="icon-"] {
+#contact [class*=" icon-"],
+#contact [class^="icon-"] {
   margin: 0 0.5rem 0 0.7rem;
 }
 
 #statement {
   font-style: italic;
   color: #555;
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+@media print, (min-width: 40em) {
+  #statement {
+    padding: 1rem;
+  }
 }
 
 .tech {
@@ -108,21 +244,6 @@ nav a, nav a:link, nav a:visited {
 }
 
 @media print {
-  body {
-    font-size: 10pt;
-  }
-  h1 {
-    font-size: 16pt;
-  }
-  nav {
-    display: none;
-  }
-  #cv, #statement {
-    padding: 0;
-  }
-  p {
-    margin: 10px 0;
-  }
   .tech span {
     margin: 0;
     padding: 0;
@@ -132,33 +253,22 @@ nav a, nav a:link, nav a:visited {
     content: "•";
     margin: 5pt;
   }
-  a:link, a:visited {
-    text-decoration: none;
+}
+
+@media print {
+  body {
+    font-size: 10pt;
   }
-  #portfolio p {
-    display: none;
+  #cv,
+  #statement {
+    padding: 0;
   }
+  #portfolio p,
   #education p {
     display: none;
   }
   #portfolio h3 {
     grid-template-columns: 300px auto 150px !important;
-  }
-  section h2 {
-    border: none;
-    margin-bottom: 0;
-  }
-  section h3 {
-    border-top: 0.25px #333 solid;
-    padding: 2mm 0 0 0;
-  }
-  section h3 a:link::after, section h3 a:visited::after {
-    content: attr(href);
-    font-size: 70%;
-    font-weight: normal;
-    color: #555;
-    display: block;
-    clear: both;
   }
 }
 
@@ -169,10 +279,10 @@ nav a, nav a:link, nav a:visited {
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
