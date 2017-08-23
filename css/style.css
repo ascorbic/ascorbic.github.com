@@ -124,7 +124,7 @@ nav a, nav a:link, nav a:visited {
     margin: 10px 0;
   }
   .tech span {
-    margin: 0 0 2mm 0;
+    margin: 0;
     padding: 0;
     color: black;
   }
