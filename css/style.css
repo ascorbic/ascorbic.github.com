@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* This is generated with Sass. Look at http://mk.gg/sass/style.scss to see the source scss file */
 * {
   font-family: open_sans;
 }
@@ -19,6 +20,7 @@ body {
 }
 
 #matt {
+  /* The pic is aligned to the background image which is stretched to the viewport, so we use vw as the units. */
   display: block;
   width: 20vw;
   margin: 20vw auto 2rem auto;
@@ -28,6 +30,7 @@ body {
 
 @media screen and (min-width: 750px) {
   #matt {
+    /* If the viewport is wider than this, then the image is at max-size so we need to calculate margins differently.*/
     margin-top: calc(33vw - 75px);
   }
 }
@@ -94,7 +97,7 @@ section h2 {
   border-bottom: 2px #888 solid;
   margin: 1rem 0;
   padding-bottom: 0.3rem;
-  font-size: 120%;
+  font-size: 130%;
 }
 
 @media print {
@@ -156,6 +159,7 @@ section h3 :nth-child(3) {
   }
   section h3 a:link::after,
   section h3 a:visited::after {
+    /* If we're printing, display the URL underneath */
     content: attr(href);
     font-size: 70%;
     font-weight: normal;
@@ -172,6 +176,22 @@ section p {
 @media print {
   section p {
     margin: 10px 0;
+  }
+}
+
+@media print {
+  section .full {
+    display: none;
+  }
+}
+
+section .summary {
+  display: none;
+}
+
+@media print {
+  section .summary {
+    display: inherit;
   }
 }
 
@@ -225,6 +245,7 @@ nav a:visited {
 
 @media print {
   #contact > *:first-child {
+    /* Only need to see the web URL when printed */
     display: inline-block;
   }
 }
@@ -273,6 +294,12 @@ nav a:visited {
   margin-top: 0.8em;
 }
 
+@media print {
+  .tech {
+    margin-top: 0;
+  }
+}
+
 .tech span {
   font-size: 80%;
   background-color: #888;
@@ -291,7 +318,11 @@ nav a:visited {
   .tech span {
     margin: 0;
     padding: 0;
+    background: none;
     color: black;
+  }
+  .tech span.highlight {
+    background: none;
   }
   .tech span:not(:last-child):after {
     content: "•";
@@ -307,7 +338,6 @@ nav a:visited {
   #statement {
     padding: 0;
   }
-  #portfolio p,
   #education p {
     display: none;
   }
@@ -316,6 +346,7 @@ nav a:visited {
   }
 }
 
+/* Webfonts. All modern browsers support woff now, so I'm not bothering with other formats */
 @font-face {
   font-family: 'icomoon';
   src: url("icomoon.woff?s2lsqw") format("woff");

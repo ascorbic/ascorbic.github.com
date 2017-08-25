@@ -26,6 +26,8 @@
     }
 }
 
+/* This is generated with Sass. Look at http://mk.gg/sass/style.scss to see the source scss file */
+
 * {
     font-family: open_sans;
 }
@@ -43,11 +45,14 @@ body {
 }
 
 #matt {
+  /* The pic is aligned to the background image which is stretched to the viewport, so we use vw as the units. */
+
   display: block;
   width: 20vw;
   margin: 20vw auto 2rem auto;
   max-width: 150px;
   @media screen and (min-width: 750px) {
+    /* If the viewport is wider than this, then the image is at max-size so we need to calculate margins differently.*/
     margin-top: calc(33vw - 75px);
   }
 
@@ -100,7 +105,7 @@ section {
         border-bottom: 2px #888 solid;
         margin: 1rem 0;
         padding-bottom: 0.3rem;
-        font-size: 120%;
+        font-size: 130%;
         @media print {
             border: none;
             margin-bottom: 0;
@@ -147,6 +152,7 @@ section {
             padding: 2mm 0 0 0;
             a:link::after,
             a:visited::after {
+              /* If we're printing, display the URL underneath */
                 content: attr(href);
                 font-size: 70%;
                 font-weight: normal;
@@ -161,6 +167,19 @@ section {
         @media print {
             margin: 10px 0;
         }
+    }
+
+    @media print {
+      .full {
+        display: none;
+      }
+    }
+
+    .summary {
+      display: none;
+      @media print {
+        display: inherit;
+      }
     }
 }
 
@@ -198,6 +217,7 @@ nav {
     &>*:first-child {
         display: none;
         @media print {
+          /* Only need to see the web URL when printed */
             display: inline-block;
         }
     }
@@ -233,6 +253,9 @@ nav {
 
 .tech {
     margin-top: 0.8em;
+    @media print {
+      margin-top: 0;
+    }
     span {
         font-size: 80%;
         background-color: #888;
@@ -247,6 +270,10 @@ nav {
         @media print {
             margin: 0;
             padding: 0;
+            background: none;
+            &.highlight {
+              background: none;
+            }
             color: black;
             &:not(:last-child):after {
                 content: "•";
@@ -264,7 +291,6 @@ nav {
     #statement {
         padding: 0;
     }
-    #portfolio,
     #education {
         p {
             display: none;
@@ -275,7 +301,8 @@ nav {
     }
 }
 
-//Webfonts
+/* Webfonts. All modern browsers support woff now, so I'm not bothering with other formats */
+
 $icon-email: "\e900";
 $icon-github: "\e902";
 $icon-twitter: "\e903";
